@@ -257,30 +257,69 @@ html, body {
 .img-slot {
   border-radius: 20px;  /* +4 */
   border: 2px dashed rgba(57, 169, 0, 0.35);
-  background: linear-gradient(135deg, var(--gl), var(--gl2));
+  background: #f7fcf2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;            /* +4 */
+  gap: 16px;
   color: var(--gd);
   text-align: center;
-  padding: 28px;        /* +4 */
+  padding: 0;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(57, 169, 0, 0.18);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.img-slot img,
+.img-slot video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .img-slot i {
-  font-size: 40px;      /* +8 */
+  font-size: 40px;
   opacity: 0.4;
 }
 
 .img-slot span {
-  font-size: 14px;      /* +2 */
+  font-size: 14px;
   font-weight: 600;
   opacity: 0.7;
   font-family: 'DM Sans', sans-serif;
   line-height: 1.5;
 }
+
+.code-card {
+  background: #fff;
+  border: 1px solid var(--bdr);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.08);
+  color: var(--txt2);
+}
+
+.code-card-title {
+  font-weight: 800;
+  color: var(--g);
+  margin-bottom: 12px;
+  letter-spacing: 0.6px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.code-card pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 
 /* ==============================================
    SLIDE 1: PORTADA

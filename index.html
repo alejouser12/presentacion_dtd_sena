@@ -95,9 +95,8 @@
           <div class="spill"><span class="sn">3</span><i class="fa-solid fa-users-gear"></i> Roles</div>
           <div class="spill"><i class="fa-brands fa-php" style="font-size:16px;color:var(--g)"></i> Backend</div>
         </div>
-        <div class="img-slot rv d4" style="height:140px;margin-top:6px">
-          <i class="fa-solid fa-desktop"></i>
-          <span>Captura del dashboard<br>o pantalla principal del sistema</span>
+        <div class="img-slot rv d4" style="height:220px;margin-top:6px">
+          <img src="img/panel_aprendices.png" alt="Panel de aprendices del sistema DTD_SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
       <div class="vdiv rv d2"></div>
@@ -151,8 +150,7 @@
           <p>Desarrollado con <strong>PHP 8 + MySQL</strong>, implementa el patrón DAO y control de acceso por roles (Admin / Instructor).</p>
         </div>
         <div class="img-slot" style="flex:1;min-height:160px">
-          <i class="fa-solid fa-desktop"></i>
-          <span>Screenshot del módulo<br>de aprendices o panel principal</span>
+          <img src="img/pantalla_principal_sistema.png" alt="Pantalla principal del sistema DTD_SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
       <div class="col rv d2">
@@ -180,9 +178,8 @@
           <p>La <strong>deserción estudiantil</strong> en el SENA afecta la calidad del proceso formativo y el desarrollo profesional de miles de aprendices en Colombia.</p>
           <p>El sistema <strong>DTD_SENA</strong> centraliza el seguimiento académico, detecta tempranamente factores de riesgo y facilita la toma de decisiones oportunas en SENA Caldas.</p>
         </div>
-        <div class="img-slot" style="height:150px;margin-top:6px">
-          <i class="fa-solid fa-chart-bar"></i>
-          <span>Gráfica o estadística de<br>deserción estudiantil SENA</span>
+        <div class="img-slot" style="height:220px;margin-top:6px">
+          <img src="img/desercion_estudiantil_sena.png" alt="Gráfica de deserción estudiantil SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
       <div class="vdiv rv d2"></div>
@@ -224,8 +221,7 @@
       <div class="colr rv d2" style="width:38%">
         <div class="slbl"><i class="fa-solid fa-display"></i> Vista del sistema</div>
         <div class="img-slot" style="flex:1;min-height:300px">
-          <i class="fa-solid fa-mobile-screen-button" style="font-size:38px"></i>
-          <span>Captura del módulo de fichas,<br>pantalla de aprendices<br>o vista del panel principal</span>
+          <img src="img/fichas_del_programa.png" alt="Módulo de fichas del programa" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
     </div>
@@ -246,11 +242,23 @@
         <div class="dao" style="flex:1">
           <div class="dao-badge"><i class="fa-solid fa-layer-group"></i> Característica técnica destacada</div>
           <div class="dao-title">Patrón de Diseño DAO (Data Access Object)</div>
-          <div class="dao-txt">El motor de alertas se basa en el patrón <strong>DAO</strong>, que centraliza la lógica de base de datos separada de la capa de presentación. Módulos como <strong>AlertaDAO, AprendizDAO y SeguimientoDAO</strong> gestionan sus operaciones con transacciones atómicas, garantizando consistencia en el seguimiento académico de los aprendices.</div>
+          <div class="dao-txt">El motor de alertas se basa en el patrón <strong>DAO</strong>, que separa la lógica de datos de la presentación. En la carpeta <strong>conexion/</strong> se encuentran los principales objetos de acceso a datos del sistema.</div>
         </div>
-        <div class="img-slot" style="width:230px;flex-shrink:0">
-          <i class="fa-solid fa-code-branch" style="font-size:34px"></i>
-          <span>Captura del código fuente<br>o diagrama de arquitectura<br>DAO del sistema</span>
+        <div class="code-card" style="width:280px;flex-shrink:0">
+          <div class="code-card-title">Estructura del código fuente</div>
+          <pre>conexion/
+├─ AlertaDAO.php
+├─ AprendizDAO.php
+├─ AsistenciaDAO.php
+├─ centroDAO.php
+├─ EvidenciaDAO.php
+├─ FichaDAO.php
+├─ HorarioDAO.php
+├─ instructorDAO.php
+├─ ObservacionDAO.php
+├─ ProgramaDAO.php
+├─ RegionalDAO.php
+└─ SeguimientoDAO.php</pre>
         </div>
       </div>
     </div>
@@ -298,8 +306,10 @@
       <div class="colr rv d2" style="width:33%">
         <div class="slbl"><i class="fa-solid fa-film"></i> Demostración</div>
         <div class="img-slot" style="flex:1;min-height:300px">
-          <i class="fa-solid fa-film" style="font-size:38px"></i>
-          <span>GIF o captura de pantalla<br>del módulo de alertas<br>o panel de control del sistema</span>
+          <video autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;border-radius:16px;">
+            <source src="img/Grabaci%C3%B3n%20de%20pantalla%202026-06-09%20081836.mp4" type="video/mp4">
+            Tu navegador no admite la reproducción de video HTML5.
+          </video>
         </div>
       </div>
     </div>
@@ -322,8 +332,7 @@
       <div class="colr rv d2" style="width:32%">
         <div class="slbl"><i class="fa-solid fa-code"></i> Tecnologías del proyecto</div>
         <div class="img-slot" style="flex:1;min-height:220px">
-          <i class="fa-solid fa-laptop-code" style="font-size:40px"></i>
-          <span>Tecnologías utilizadas en el desarrollo del sistema DTD_SENA</span>
+          <img src="img/tecnologias_utilizadas.png" alt="Tecnologías utilizadas en el desarrollo del sistema DTD_SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;background:#fff;padding:8px;">
         </div>
         <div style="background:var(--gl);border-radius:12px;padding:16px 18px;border:1px solid var(--bdr)">
           <div style="font-size:11px;font-weight:800;color:var(--g);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px"><i class="fa-solid fa-code"></i> Stack tecnológico</div>
