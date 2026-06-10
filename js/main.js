@@ -96,11 +96,13 @@
     // Actualizar índice y UI
     currentIndex = newIndex;
     updateUI();
-    
-    // Después de la animación, remover clase out-left y liberar bloqueo
+    resetSlideScroll(nextSlide);
+
+    // Recalcular scroll tras animación y render de contenido
     setTimeout(() => {
       currentSlide.classList.remove('out-left');
       busy = false;
+      updateScrollIndicators();
     }, 380); // Coincide con la transición de salida
   }
 
@@ -145,17 +147,72 @@
     }
   }
 
-  // Touch events (swipe)
+  // Touch events (swipe horizontal; no interferir con scroll vertical)
   let touchStartX = 0;
+  let touchStartY = 0;
   function handleTouchStart(e) {
     touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
   }
   function handleTouchEnd(e) {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 45) {
-      if (diff > 0) nextSlide();
+    const diffX = touchStartX - e.changedTouches[0].clientX;
+    const diffY = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
+      if (diffX > 0) nextSlide();
       else prevSlide();
     }
+  }
+
+  // Scroll en móvil: detectar overflow y ajustar altura mínima sin mover el diseño
+  const MOBILE_BP = 992;
+
+  function isMobileView() {
+    return window.innerWidth <= MOBILE_BP;
+  }
+
+  function resetSlideScroll(slideEl) {
+    if (!slideEl) return;
+    slideEl.scrollTop = 0;
+    slideEl.scrollLeft = 0;
+  }
+
+  function fixAbsoluteSlideHeight(slideEl) {
+    if (!slideEl || !isMobileView()) return;
+
+    slideEl.style.minHeight = '';
+
+    const positioned = slideEl.querySelectorAll('.s1-left, .s1-right, .s1-footer, .div-body, .thx-body');
+    if (!positioned.length) return;
+
+    let maxBottom = window.innerHeight;
+    const slideTop = slideEl.getBoundingClientRect().top;
+
+    positioned.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      maxBottom = Math.max(maxBottom, rect.bottom - slideTop);
+    });
+
+    slideEl.style.minHeight = `${Math.ceil(maxBottom + 110)}px`;
+  }
+
+  function updateScrollIndicators() {
+    if (!isMobileView()) {
+      document.body.classList.remove('is-mobile');
+      slides.forEach((slide) => {
+        slide.classList.remove('has-scroll');
+        slide.style.minHeight = '';
+      });
+      return;
+    }
+
+    document.body.classList.add('is-mobile');
+
+    slides.forEach((slide) => {
+      fixAbsoluteSlideHeight(slide);
+      const canScrollY = slide.scrollHeight > slide.clientHeight + 2;
+      const canScrollX = slide.scrollWidth > slide.clientWidth + 2;
+      slide.classList.toggle('has-scroll', canScrollY || canScrollX);
+    });
   }
 
   // Click en zonas laterales (avanzar/retroceder si no se hizo clic en botón/enlace)
@@ -209,7 +266,8 @@
     
     generateDots();
     updateUI();
-    
+    updateScrollIndicators();
+
     // Asignar eventos globales
     document.addEventListener('keydown', handleKeydown);
     document.addEventListener('touchstart', handleTouchStart, { passive: true });
@@ -225,6 +283,10 @@
     const fsButton = document.getElementById('fsbtn');
     if (fsButton) fsButton.addEventListener('click', toggleFullscreen);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
+    window.addEventListener('resize', updateScrollIndicators);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(updateScrollIndicators, 150);
+    });
   }
   
   // Iniciar cuando el DOM esté listo
