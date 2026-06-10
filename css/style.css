@@ -1419,6 +1419,10 @@ html, body {
 
 /* ===== Responsive móvil ===== */
 @media (max-width: 992px) {
+  .slide {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   #nav {
     left: auto;
     right: 10px;
@@ -1481,6 +1485,7 @@ html, body {
 
   .sbody {
     gap: 24px;
+    flex-wrap: wrap;
   }
 
   .col,
@@ -1513,13 +1518,22 @@ html, body {
   .s1-left {
     left: 6%;
     width: 84%;
+    top: auto;
+    transform: none;
+    padding-top: 16px;
   }
 
   .s1-right {
     position: static;
     transform: none;
-    width: auto;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .s1-stripe {
+    width: 100%;
+    clip-path: none;
+    height: 160px;
   }
 
   .s1-orbit {
@@ -1559,6 +1573,7 @@ html, body {
     align-items: flex-start;
     gap: 24px;
     padding: 0 8%;
+    flex-wrap: wrap;
   }
 
   .div-num {
@@ -1580,6 +1595,8 @@ html, body {
     padding: 0 16px;
   }
 
+  .g2,
+  .g3,
   .g4 {
     display: grid;
     grid-template-columns: 1fr;
@@ -1674,10 +1691,17 @@ html, body {
   .s1-left {
     left: 4%;
     width: 92%;
+    top: auto;
+    transform: none;
+    padding-top: 12px;
   }
 
   .s1-title {
     font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .s1-stripe {
+    display: none;
   }
 
   .s1-orbit {
@@ -1705,6 +1729,10 @@ html, body {
   .toc-bar,
   .sbar {
     padding: 16px 4%;
+  }
+
+  .slide {
+    padding-bottom: 80px;
   }
 
   .toc-body {
