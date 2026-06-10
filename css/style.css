@@ -1417,6 +1417,388 @@ html, body {
   gap: 18px;          /* +4 */
 }
 
+/* ===== Responsive móvil ===== */
+@media (max-width: 992px) {
+  #nav {
+    left: auto;
+    right: 10px;
+    transform: none;
+    bottom: 18px;
+    padding: 12px 18px;
+  }
+
+  .ndots {
+    gap: 8px;
+  }
+
+  #hint {
+    right: 10px;
+    bottom: 80px;
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+
+  #fsbtn {
+    left: auto;
+    right: 10px;
+    top: 18px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .slogo {
+    top: 18px;
+    right: 16px;
+    gap: 10px;
+  }
+
+  .slogo-ico {
+    width: 44px;
+    height: 44px;
+  }
+
+  .slogo-ico i {
+    font-size: 22px;
+  }
+
+  .slogo-txt {
+    font-size: 14px;
+  }
+
+  .sbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .sbar h2 {
+    text-align: center;
+  }
+
+  .sbar-n {
+    margin-left: auto;
+  }
+
+  .sbody {
+    gap: 24px;
+  }
+
+  .col,
+  .colr {
+    width: 100%;
+  }
+
+  .vdiv {
+    display: none;
+  }
+
+  .g5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toc-body {
+    padding: 3% 4%;
+  }
+
+  .toc-card {
+    padding: 20px 16px;
+  }
+
+  .toc-bar {
+    padding: 18px 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .s1-left {
+    left: 6%;
+    width: 84%;
+  }
+
+  .s1-right {
+    position: static;
+    transform: none;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .s1-orbit {
+    width: 200px;
+    height: 200px;
+  }
+
+  .s1-inner {
+    width: 150px;
+    height: 150px;
+  }
+
+  .s1-inner .big {
+    font-size: 44px;
+  }
+
+  .s1-title {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    margin-bottom: 24px;
+  }
+
+  .s1-autores,
+  .s1-footer {
+    align-items: flex-start;
+  }
+
+  .s1-footer {
+    flex-direction: column;
+    gap: 10px;
+    left: auto;
+    right: 6%;
+    bottom: 16px;
+  }
+
+  .div-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0 8%;
+  }
+
+  .div-num {
+    width: 110px;
+    height: 110px;
+    font-size: 52px;
+  }
+
+  .div-title {
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .thx-title {
+    font-size: clamp(4.5rem, 14vw, 7rem);
+  }
+
+  .thx-sub {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .g4 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dao,
+  .code-card {
+    width: 100%;
+  }
+
+  .sbar h2 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+
+  .gquote {
+    padding: 24px 24px;
+  }
+
+  .spills,
+  .toc-card,
+  .fc,
+  .oc,
+  .antc,
+  .rc,
+  .ri {
+    padding: 18px;
+  }
+
+  .img-slot {
+    min-height: 180px;
+  }
+
+  .arc,
+  .bc,
+  .ic,
+  .antc {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #nav {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    gap: 12px;
+    padding: 10px 14px;
+    bottom: 12px;
+  }
+
+  .ndots {
+    display: none;
+  }
+
+  #ctr {
+    min-width: auto;
+  }
+
+  .slogo {
+    top: 14px;
+    right: 14px;
+  }
+
+  .slogo-ico {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slogo-ico i {
+    font-size: 20px;
+  }
+
+  .slogo-txt {
+    font-size: 13px;
+  }
+
+  #fsbtn {
+    top: 14px;
+    left: 14px;
+    right: auto;
+    padding: 8px 12px;
+  }
+
+  #hint {
+    bottom: 70px;
+    right: 14px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .s1-left {
+    left: 4%;
+    width: 92%;
+  }
+
+  .s1-title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .s1-orbit {
+    width: 170px;
+    height: 170px;
+  }
+
+  .s1-inner {
+    width: 130px;
+    height: 130px;
+  }
+
+  .s1-inner .big {
+    font-size: 36px;
+  }
+
+  .s1-pills {
+    justify-content: center;
+  }
+
+  .sbody {
+    padding: 3% 4%;
+  }
+
+  .toc-bar,
+  .sbar {
+    padding: 16px 4%;
+  }
+
+  .toc-body {
+    padding: 3% 4%;
+  }
+
+  .toc-card {
+    padding: 18px 14px;
+  }
+
+  .g5 {
+    grid-template-columns: 1fr;
+  }
+
+  .div-body {
+    padding: 0 4%;
+    gap: 18px;
+  }
+
+  .div-num {
+    width: 95px;
+    height: 95px;
+    font-size: 46px;
+  }
+
+  .div-title {
+    font-size: clamp(1.8rem, 10vw, 2.4rem);
+  }
+
+  .btxt {
+    font-size: 15px;
+  }
+
+  .slbl {
+    font-size: 14px;
+  }
+
+  .gquote {
+    padding: 20px 20px;
+  }
+
+  .spills {
+    gap: 10px;
+  }
+
+  .spill {
+    padding: 10px 16px;
+  }
+
+  .img-slot {
+    min-height: 150px;
+  }
+
+  .fc,
+  .oc,
+  .arc,
+  .antc,
+  .rc,
+  .ri,
+  .dao {
+    padding: 16px;
+  }
+
+  .arc-ico,
+  .fc-ico,
+  .oc-n,
+  .antc-n,
+  .rc-n,
+  .ic-ico {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arc-ico i,
+  .fc-ico i,
+  .ic-ico i,
+  .rc-ico i {
+    font-size: 22px;
+  }
+
+  .thx-title {
+    font-size: clamp(3.6rem, 18vw, 5.5rem);
+  }
+
+  .thx-link {
+    padding: 10px 14px;
+    margin: 0 12px;
+  }
+
+  .thx-dots {
+    gap: 10px;
+  }
+}
+
 .g4r {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
