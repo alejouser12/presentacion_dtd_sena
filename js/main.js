@@ -158,28 +158,33 @@
     if (!slideEl) return;
     slideEl.scrollTop = 0;
     slideEl.scrollLeft = 0;
+    slideEl.querySelectorAll('.sbody, .toc-body').forEach((el) => {
+      el.scrollTop = 0;
+      el.scrollLeft = 0;
+    });
   }
 
-  function fixAbsoluteSlideHeight(slideEl) {
-    if (!slideEl || !isMobileView()) return;
+  function getScrollAreas(slideEl) {
+    const areas = [];
+    if (slideEl.classList.contains('slide-stack')) {
+      slideEl.querySelectorAll('.sbody, .toc-body').forEach((el) => areas.push(el));
+    } else if (slideEl.classList.contains('slide-full')) {
+      areas.push(slideEl);
+    }
+    return areas;
+  }
 
-    slideEl.style.minHeight = '';
+  function markScrollAreas() {
+    document.querySelectorAll('.mob-scroll').forEach((el) => el.classList.remove('mob-scroll'));
+    if (!isMobileView()) return;
 
-    /* Slides con layout flex en móvil no necesitan cálculo extra */
-    if (slideEl.id === 's1' || slideEl.classList.contains('sdiv') || slideEl.id === 's-thx') return;
-
-    const positioned = slideEl.querySelectorAll('.s1-left, .s1-right, .s1-footer, .div-body, .thx-body');
-    if (!positioned.length) return;
-
-    let maxBottom = window.innerHeight;
-    const slideTop = slideEl.getBoundingClientRect().top;
-
-    positioned.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      maxBottom = Math.max(maxBottom, rect.bottom - slideTop);
+    slides.forEach((slide) => {
+      getScrollAreas(slide).forEach((area) => {
+        area.classList.add('mob-scroll');
+        const canScroll = area.scrollHeight > area.clientHeight + 2;
+        area.classList.toggle('has-scroll', canScroll);
+      });
     });
-
-    slideEl.style.minHeight = `${Math.ceil(maxBottom + 110)}px`;
   }
 
   function updateScrollIndicators() {
@@ -188,17 +193,19 @@
       slides.forEach((slide) => {
         slide.classList.remove('has-scroll');
         slide.style.minHeight = '';
+        slide.querySelectorAll('.sbody, .toc-body').forEach((el) => {
+          el.classList.remove('has-scroll', 'mob-scroll');
+        });
       });
       return;
     }
 
     document.body.classList.add('is-mobile');
-
     slides.forEach((slide) => {
-      fixAbsoluteSlideHeight(slide);
-      const canScrollY = slide.scrollHeight > slide.clientHeight + 2;
-      slide.classList.toggle('has-scroll', canScrollY);
+      slide.style.minHeight = '';
+      slide.classList.remove('has-scroll');
     });
+    markScrollAreas();
   }
 
   // Click en zonas laterales (solo escritorio; en móvil usa los botones)
@@ -271,6 +278,7 @@
     window.addEventListener('orientationchange', () => {
       setTimeout(updateScrollIndicators, 150);
     });
+    window.addEventListener('load', updateScrollIndicators);
   }
   
   // Iniciar cuando el DOM esté listo

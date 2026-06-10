@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>DTD_SENA — Detección de Deserción Estudiantil</title>
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
 <div id="deck">
 
   <!-- ══ SLIDE 1: PORTADA ══ -->
-  <div class="slide" id="s1">
+  <div class="slide slide-full" id="s1">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="s1-stripe"></div><div class="s1-bot"></div>
     <div class="s1-left">
@@ -51,7 +51,7 @@
   </div>
 
   <!-- ══ SLIDE 2: TABLA DE CONTENIDO ══ -->
-  <div class="slide" id="s2" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s2">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="toc-bar"><i class="fa-solid fa-list" style="color:#fff;font-size:20px"></i><h2>Tabla de Contenido</h2></div>
     <div class="toc-body">
@@ -73,14 +73,14 @@
   </div>
 
   <!-- ══ SLIDE 3: DIVISOR INTRO ══ -->
-  <div class="slide sdiv" id="s3">
+  <div class="slide slide-full sdiv" id="s3">
     <div class="slogo slogo-dk"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="div-half"></div>
     <div class="div-body"><div class="div-num rv d1">01</div><div><div class="div-title rv d2">Introducción</div><div class="div-sub rv d3">Contexto y resumen del proyecto DTD_SENA</div><div class="div-line"></div></div></div>
   </div>
 
   <!-- ══ SLIDE 4: INTRO + ABSTRACT ══ -->
-  <div class="slide" id="s4" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s4">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Introducción &amp; Abstract</h2><div class="sbar-n">01</div></div>
     <div class="sbody">
@@ -95,7 +95,7 @@
           <div class="spill"><span class="sn">3</span><i class="fa-solid fa-users-gear"></i> Roles</div>
           <div class="spill"><i class="fa-brands fa-php" style="font-size:16px;color:var(--g)"></i> Backend</div>
         </div>
-        <div class="img-slot rv d4" style="height:220px;margin-top:6px">
+        <div class="img-slot img-h-220 rv d4">
           <img src="img/panel_aprendices.png" alt="Panel de aprendices del sistema DTD_SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
@@ -112,17 +112,17 @@
   </div>
 
   <!-- ══ SLIDE 5: DIVISOR OBJETIVOS ══ -->
-  <div class="slide sdiv" id="s5">
+  <div class="slide slide-full sdiv" id="s5">
     <div class="slogo slogo-dk"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="div-half"></div>
     <div class="div-body"><div class="div-num rv d1">02</div><div><div class="div-title rv d2">Objetivos</div><div class="div-sub rv d3">General y específicos del proyecto</div><div class="div-line"></div></div></div>
   </div>
 
   <!-- ══ SLIDE 6: OBJETIVOS ══ -->
-  <div class="slide" id="s6" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s6">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Objetivos</h2><div class="sbar-n">02</div></div>
-    <div class="sbody" style="flex-direction:column;gap:18px">
+    <div class="sbody sbody-stack">
       <div class="rv d1">
         <div class="slbl"><i class="fa-solid fa-crosshairs"></i> Objetivo General</div>
         <div class="gquote">Desarrollar un <strong>sistema web de detección de deserción estudiantil</strong> para el SENA, como herramienta efectiva en el monitoreo del rendimiento académico, asistencia y nivel de riesgo de los aprendices en tiempo real.</div>
@@ -139,17 +139,17 @@
   </div>
 
   <!-- ══ SLIDE 7: DESCRIPCIÓN + CARACTERÍSTICAS ══ -->
-  <div class="slide" id="s7" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s7">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Descripción del Proyecto — DTD_SENA</h2><div class="sbar-n">03</div></div>
-    <div class="sbody" style="gap:3%">
-      <div class="colr rv d1" style="width:30%">
+    <div class="sbody sbody-gap">
+      <div class="colr w-30 rv d1">
         <div class="slbl"><i class="fa-solid fa-circle-info"></i> Descripción</div>
         <div class="btxt">
           <p>El sistema <strong>DTD_SENA</strong> gestiona y monitorea el proceso formativo de los aprendices del SENA, detectando y previniendo la deserción estudiantil.</p>
           <p>Desarrollado con <strong>PHP 8 + MySQL</strong>, implementa el patrón DAO y control de acceso por roles (Admin / Instructor).</p>
         </div>
-        <div class="img-slot" style="flex:1;min-height:160px">
+        <div class="img-slot img-min-160">
           <img src="img/pantalla_principal_sistema.png" alt="Pantalla principal del sistema DTD_SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
@@ -168,24 +168,24 @@
   </div>
 
   <!-- ══ SLIDE 8: JUSTIFICACIÓN + ANTECEDENTES ══ -->
-  <div class="slide" id="s8" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s8">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Justificación &amp; Antecedentes</h2><div class="sbar-n">04 · 05</div></div>
-    <div class="sbody" style="gap:3%">
+    <div class="sbody sbody-gap">
       <div class="col rv d1">
         <div class="slbl"><i class="fa-solid fa-scale-balanced"></i> Justificación</div>
         <div class="btxt">
           <p>La <strong>deserción estudiantil</strong> en el SENA afecta la calidad del proceso formativo y el desarrollo profesional de miles de aprendices en Colombia.</p>
           <p>El sistema <strong>DTD_SENA</strong> centraliza el seguimiento académico, detecta tempranamente factores de riesgo y facilita la toma de decisiones oportunas en SENA Caldas.</p>
         </div>
-        <div class="img-slot" style="height:220px;margin-top:6px">
+        <div class="img-slot img-h-220">
           <img src="img/desercion_estudiantil_sena.png" alt="Gráfica de deserción estudiantil SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
       <div class="vdiv rv d2"></div>
       <div class="col rv d2">
         <div class="slbl"><i class="fa-solid fa-clock-rotate-left"></i> Antecedentes</div>
-        <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="antc-list">
           <div class="antc"><div class="antc-n">1</div><div><div class="antc-t">Plataforma de Gestión Académica SENA (versión anterior)</div><div class="antc-x">Plataforma institucional base para el diseño y adaptación del DTD_SENA.</div></div></div>
           <div class="antc"><div class="antc-n">2</div><div><div class="antc-t">Sofia Plus</div><div class="antc-x">Herramienta oficial SENA con seguimiento de aprendices, sin alertas automáticas de deserción.</div></div></div>
           <div class="antc"><div class="antc-n">3</div><div><div class="antc-t">Ley 1581 de 2012</div><div class="antc-x">Ley de protección de datos personales que regula el manejo de información de aprendices.</div></div></div>
@@ -196,31 +196,31 @@
   </div>
 
   <!-- ══ SLIDE 9: ALCANCE ══ -->
-  <div class="slide" id="s9" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s9">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Alcance del Proyecto</h2><div class="sbar-n">06</div></div>
-    <div class="sbody" style="gap:3%">
+    <div class="sbody sbody-gap">
       <div class="col rv d1">
         <div class="slbl"><i class="fa-solid fa-arrows-left-right"></i> Alcance definido</div>
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <div class="fc" style="flex-direction:row;align-items:flex-start;gap:14px">
-            <div class="fc-ico" style="flex-shrink:0"><i class="fa-solid fa-map-location-dot"></i></div>
+        <div class="stack-list">
+          <div class="fc fc-row">
+            <div class="fc-ico fc-ico-fix"><i class="fa-solid fa-map-location-dot"></i></div>
             <div><div class="fc-t">Geografía</div><div class="fc-d">Implementación inicial en SENA Caldas — Centro de Procesos Industriales, Manizales. Potencial de escalabilidad a otros centros del país.</div></div>
           </div>
-          <div class="fc" style="flex-direction:row;align-items:flex-start;gap:14px">
-            <div class="fc-ico" style="flex-shrink:0"><i class="fa-solid fa-users"></i></div>
+          <div class="fc fc-row">
+            <div class="fc-ico fc-ico-fix"><i class="fa-solid fa-users"></i></div>
             <div><div class="fc-t">Usuarios Objetivo</div><div class="fc-d">Instructores (seguimiento a aprendices), Administradores (acceso completo), y aprendices del programa Tecnólogo en Análisis y Desarrollo de Software.</div></div>
           </div>
-          <div class="fc" style="flex-direction:row;align-items:flex-start;gap:14px">
-            <div class="fc-ico" style="flex-shrink:0"><i class="fa-solid fa-gears"></i></div>
+          <div class="fc fc-row">
+            <div class="fc-ico fc-ico-fix"><i class="fa-solid fa-gears"></i></div>
             <div><div class="fc-t">Funcionalidades Incluidas</div><div class="fc-d">Asistencia semanal, alertas por nivel de riesgo (Bajo/Medio/Alto), gestión de fichas, programas, regionales, centros y módulo de evidencias.</div></div>
           </div>
         </div>
       </div>
       <div class="vdiv rv d2"></div>
-      <div class="colr rv d2" style="width:38%">
+      <div class="colr w-38 rv d2">
         <div class="slbl"><i class="fa-solid fa-display"></i> Vista del sistema</div>
-        <div class="img-slot" style="flex:1;min-height:300px">
+        <div class="img-slot img-min-300">
           <img src="img/fichas_del_programa.png" alt="Módulo de fichas del programa" style="width:100%;height:100%;object-fit:contain;border-radius:14px;">
         </div>
       </div>
@@ -228,23 +228,23 @@
   </div>
 
   <!-- ══ SLIDE 10: ARQUITECTURA Y TECNOLOGÍA ══ -->
-  <div class="slide" id="s10" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s10">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Arquitectura y Tecnología</h2><div class="sbar-n">07</div></div>
-    <div class="sbody" style="flex-direction:column;gap:16px">
+    <div class="sbody sbody-stack sbody-gap-sm">
       <div class="g4 rv d1">
         <div class="arc"><div class="arc-ico"><i class="fa-brands fa-html5"></i></div><div class="arc-lay">Frontend</div><div class="arc-tech">HTML · CSS · JS</div><div class="arc-sub">Bootstrap 5 para diseño responsivo e interfaz web intuitiva.</div></div>
         <div class="arc"><div class="arc-ico"><i class="fa-brands fa-php"></i></div><div class="arc-lay">Backend</div><div class="arc-tech">PHP 8</div><div class="arc-sub">Arquitectura orientada a objetos. Patrón DAO para separación de lógica y datos.</div></div>
         <div class="arc"><div class="arc-ico"><i class="fa-solid fa-database"></i></div><div class="arc-lay">Base de Datos</div><div class="arc-tech">MySQL + PDO</div><div class="arc-sub">Base de datos relacional. Consultas preparadas con transacciones atómicas seguras.</div></div>
         <div class="arc"><div class="arc-ico"><i class="fa-solid fa-server"></i></div><div class="arc-lay">Entorno</div><div class="arc-tech">XAMPP / Apache</div><div class="arc-sub">Apache + MySQL local. Estructura modular escalable a servidor SENA.</div></div>
       </div>
-      <div class="rv d2" style="display:flex;gap:16px">
-        <div class="dao" style="flex:1">
+      <div class="arc-row rv d2">
+        <div class="dao dao-flex">
           <div class="dao-badge"><i class="fa-solid fa-layer-group"></i> Característica técnica destacada</div>
           <div class="dao-title">Patrón de Diseño DAO (Data Access Object)</div>
           <div class="dao-txt">El motor de alertas se basa en el patrón <strong>DAO</strong>, que separa la lógica de datos de la presentación. En la carpeta <strong>conexion/</strong> se encuentran los principales objetos de acceso a datos del sistema.</div>
         </div>
-        <div class="code-card" style="width:280px;flex-shrink:0">
+        <div class="code-card code-card-narrow">
           <div class="code-card-title">Estructura del código fuente</div>
           <pre>conexion/
 ├─ AlertaDAO.php
@@ -265,10 +265,10 @@
   </div>
 
   <!-- ══ SLIDE 11: IMPACTO + BENEFICIOS ══ -->
-  <div class="slide" id="s11" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s11">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Impacto &amp; Beneficios</h2><div class="sbar-n">08</div></div>
-    <div class="sbody" style="flex-direction:column;gap:14px">
+    <div class="sbody sbody-stack sbody-gap-tight">
       <div class="g2 rv d1">
         <div class="ic"><div class="ic-ico"><i class="fa-solid fa-handshake"></i></div><div><div class="ic-t">Social</div><div class="ic-x">Fortalece la comunicación entre instructores, aprendices y administradores. Mejora la experiencia formativa con acompañamiento oportuno y personalizado.</div></div></div>
         <div class="ic"><div class="ic-ico"><i class="fa-solid fa-chart-line-up"></i></div><div><div class="ic-t">Económico</div><div class="ic-x">Digitaliza el seguimiento académico reduciendo tiempos y costos operativos. Reportes en tiempo real facilitan decisiones estratégicas del SENA.</div></div></div>
@@ -285,10 +285,10 @@
   </div>
 
   <!-- ══ SLIDE 12: RECOMENDACIONES ══ -->
-  <div class="slide" id="s12" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s12">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Recomendaciones Adicionales</h2><div class="sbar-n">09</div></div>
-    <div class="sbody" style="gap:3%">
+    <div class="sbody sbody-gap">
       <div class="col rv d1">
         <div class="slbl"><i class="fa-solid fa-lightbulb"></i> Propuestas de mejora</div>
         <div class="g4r">
@@ -303,9 +303,9 @@
         </div>
       </div>
       <div class="vdiv rv d2"></div>
-      <div class="colr rv d2" style="width:33%">
+      <div class="colr w-33 rv d2">
         <div class="slbl"><i class="fa-solid fa-film"></i> Demostración</div>
-        <div class="img-slot" style="flex:1;min-height:300px">
+        <div class="img-slot img-min-300">
           <video autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:contain;border-radius:16px;">
             <source src="img/Grabaci%C3%B3n%20de%20pantalla%202026-06-09%20081836.mp4" type="video/mp4">
             Tu navegador no admite la reproducción de video HTML5.
@@ -316,11 +316,11 @@
   </div>
 
   <!-- ══ SLIDE 13: REFERENCIAS ══ -->
-  <div class="slide" id="s13" style="display:flex;flex-direction:column">
+  <div class="slide slide-stack" id="s13">
     <div class="slogo"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="sbar"><h2>Referencias — Fuentes Bibliográficas</h2><div class="sbar-n">10</div></div>
-    <div class="sbody" style="gap:3%">
-      <div class="col rv d1" style="gap:10px">
+    <div class="sbody sbody-gap">
+      <div class="col col-tight rv d1">
         <div class="slbl"><i class="fa-solid fa-book-open-reader"></i> Bibliografía</div>
         <div class="ri"><strong>Ministerio de Educación Nacional (2023)</strong><span>Estrategias para la permanencia y graduación en la educación superior. Bogotá: MEN. <a href="https://www.mineducacion.gov.co" target="_blank">mineducacion.gov.co</a></span></div>
         <div class="ri"><strong>SENA — Documentación institucional (2026)</strong><span>Plataforma de Gestión Académica SENA — Sistema de seguimiento y control académico.</span></div>
@@ -329,19 +329,19 @@
         <div class="ri"><strong>Gobierno de Colombia (2015)</strong><span>Decreto 1075 de 2015 — Decreto Único Reglamentario del Sector Educación en Colombia.</span></div>
       </div>
       <div class="vdiv rv d2"></div>
-      <div class="colr rv d2" style="width:32%">
+      <div class="colr w-32 rv d2">
         <div class="slbl"><i class="fa-solid fa-code"></i> Tecnologías del proyecto</div>
-        <div class="img-slot" style="flex:1;min-height:220px">
+        <div class="img-slot img-min-220">
           <img src="img/tecnologias_utilizadas.png" alt="Tecnologías utilizadas en el desarrollo del sistema DTD_SENA" style="width:100%;height:100%;object-fit:contain;border-radius:14px;background:#fff;padding:8px;">
         </div>
-        <div style="background:var(--gl);border-radius:12px;padding:16px 18px;border:1px solid var(--bdr)">
-          <div style="font-size:11px;font-weight:800;color:var(--g);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px"><i class="fa-solid fa-code"></i> Stack tecnológico</div>
-          <div style="display:flex;flex-wrap:wrap;gap:8px">
-            <span class="spill" style="font-size:12px;padding:6px 12px"><i class="fa-brands fa-php"></i> PHP 8</span>
-            <span class="spill" style="font-size:12px;padding:6px 12px"><i class="fa-solid fa-database"></i> MySQL</span>
-            <span class="spill" style="font-size:12px;padding:6px 12px"><i class="fa-brands fa-js"></i> JavaScript</span>
-            <span class="spill" style="font-size:12px;padding:6px 12px"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
-            <span class="spill" style="font-size:12px;padding:6px 12px"><i class="fa-solid fa-server"></i> Apache</span>
+        <div class="stack-box">
+          <div class="stack-box-title"><i class="fa-solid fa-code"></i> Stack tecnológico</div>
+          <div class="stack-pills">
+            <span class="spill spill-sm"><i class="fa-brands fa-php"></i> PHP 8</span>
+            <span class="spill spill-sm"><i class="fa-solid fa-database"></i> MySQL</span>
+            <span class="spill spill-sm"><i class="fa-brands fa-js"></i> JavaScript</span>
+            <span class="spill spill-sm"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+            <span class="spill spill-sm"><i class="fa-solid fa-server"></i> Apache</span>
           </div>
         </div>
       </div>
@@ -349,7 +349,7 @@
   </div>
 
   <!-- ══ SLIDE 14: GRACIAS FINAL ══ -->
-  <div class="slide" id="s-thx">
+  <div class="slide slide-full" id="s-thx">
     <div class="slogo slogo-dk"><div class="slogo-ico"><i class="fa-solid fa-seedling"></i></div><div class="slogo-txt">SENA<br>Caldas</div></div>
     <div class="thx-bg">SENA</div>
     <div class="thx-body rv d1">
