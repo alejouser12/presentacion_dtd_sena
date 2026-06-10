@@ -1417,24 +1417,26 @@ html, body {
   gap: 18px;          /* +4 */
 }
 
-/* ===== Responsive móvil: scroll sin alterar diseño ===== */
+/* ===== Responsive móvil: legible + scroll de respaldo ===== */
 @media (max-width: 992px) {
-  /* Barras de desplazamiento visibles cuando el contenido no cabe */
+  :root {
+    --base: 18px;
+  }
+
   .slide {
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-    touch-action: pan-x pan-y;
+    overscroll-behavior-y: contain;
+    touch-action: pan-y;
     scrollbar-width: thin;
     scrollbar-color: var(--g) rgba(0, 0, 0, 0.08);
-    padding-bottom: 96px;
+    padding-bottom: 100px;
     box-sizing: border-box;
   }
 
   .slide::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
   }
 
   .slide::-webkit-scrollbar-track {
@@ -1447,11 +1449,6 @@ html, body {
     border-radius: 4px;
   }
 
-  .slide::-webkit-scrollbar-thumb:hover {
-    background: var(--gd);
-  }
-
-  /* Evitar recorte interno: el scroll lo maneja la slide */
   .sbody,
   .toc-body {
     overflow: visible;
@@ -1459,68 +1456,222 @@ html, body {
     min-height: min-content;
   }
 
-  #s1,
-  .sdiv,
-  #s-thx {
-    overflow: auto;
+  /* Columnas apiladas: evita texto aplastado */
+  .sbody {
+    flex-direction: column;
+    gap: 28px;
+    padding: 4% 5%;
   }
 
-  /* Indicador sutil de que hay más contenido */
+  .col,
+  .colr {
+    width: 100% !important;
+    flex-shrink: 0;
+    gap: 16px;
+  }
+
+  .vdiv {
+    display: none;
+  }
+
+  /* Grids más legibles */
+  .g5 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .g4,
+  .g4r {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .g3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .g2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .toc-body {
+    padding: 4% 5%;
+    gap: 18px;
+  }
+
+  .toc-card {
+    padding: 18px 14px;
+  }
+
+  /* Portada: separar bloques que se superponían */
+  #s1 {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 5% 100px;
+    gap: 28px;
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  #s1 .s1-stripe {
+    display: none;
+  }
+
+  #s1 .s1-left,
+  #s1 .s1-right,
+  #s1 .s1-footer {
+    position: static;
+    transform: none;
+    width: 100%;
+  }
+
+  #s1 .s1-left {
+    order: 1;
+  }
+
+  #s1 .s1-right {
+    order: 2;
+    align-items: center;
+  }
+
+  #s1 .s1-footer {
+    order: 3;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #s1 .s1-orbit {
+    width: 200px;
+    height: 200px;
+  }
+
+  #s1 .s1-inner {
+    width: 150px;
+    height: 150px;
+  }
+
+  #s1 .s1-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+    margin-bottom: 22px;
+  }
+
+  /* Divisores y cierre */
+  .sdiv {
+    overflow-y: auto;
+    padding: 72px 5% 100px;
+    box-sizing: border-box;
+  }
+
+  .div-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 0;
+  }
+
+  .div-num {
+    width: 100px;
+    height: 100px;
+    font-size: 52px;
+  }
+
+  .div-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  #s-thx {
+    overflow-y: auto;
+    padding: 72px 5% 100px;
+    box-sizing: border-box;
+  }
+
+  .thx-title {
+    font-size: clamp(3.5rem, 12vw, 6rem);
+  }
+
+  .thx-sub {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+
+  .thx-autores {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sbar {
+    padding: 16px 5%;
+  }
+
+  .sbar h2 {
+    font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+    line-height: 1.2;
+  }
+
+  .img-slot {
+    min-height: 180px;
+  }
+
+  #s10 .sbody > .rv {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .code-card {
+    width: 100% !important;
+  }
+
   body.is-mobile .slide.has-scroll::after {
     content: '';
     position: sticky;
-    bottom: 96px;
+    bottom: 100px;
     left: 0;
     display: block;
-    height: 28px;
-    margin-top: -28px;
+    height: 24px;
+    margin-top: -24px;
     pointer-events: none;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.92), transparent);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
     z-index: 5;
   }
 
   body.is-mobile .slide.sdiv.has-scroll::after,
   body.is-mobile #s-thx.has-scroll::after {
-    background: linear-gradient(to top, rgba(15, 20, 9, 0.5), transparent);
+    background: linear-gradient(to top, rgba(15, 20, 9, 0.45), transparent);
   }
 
-  /* Solo ajustes de controles UI (no del contenido de slides) */
-  #nav {
-    left: auto;
-    right: 10px;
-    transform: none;
-    bottom: 18px;
-    padding: 12px 18px;
-  }
-
-  .ndots {
-    gap: 8px;
-  }
-
-  #hint {
-    right: 10px;
-    bottom: 88px;
-    font-size: 13px;
-    padding: 7px 14px;
-  }
-
-  #fsbtn {
-    left: auto;
-    right: 10px;
-    top: 18px;
-    padding: 8px 14px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 576px) {
   #nav {
     left: 50%;
     transform: translateX(-50%);
     right: auto;
-    gap: 12px;
-    padding: 10px 14px;
-    bottom: 12px;
+    bottom: 14px;
+    padding: 12px 18px;
+    max-width: calc(100vw - 20px);
+  }
+
+  #hint {
+    display: none;
+  }
+
+  #fsbtn {
+    top: 14px;
+    left: 14px;
+    right: auto;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .slogo {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --base: 16px;
   }
 
   .ndots {
@@ -1531,22 +1682,53 @@ html, body {
     min-width: auto;
   }
 
-  #fsbtn {
-    top: 14px;
-    left: 14px;
-    right: auto;
-    padding: 8px 12px;
-  }
-
-  #hint {
-    bottom: 78px;
-    right: 14px;
-    font-size: 12px;
-    padding: 6px 12px;
+  .g5,
+  .g4,
+  .g4r {
+    grid-template-columns: 1fr;
   }
 
   .slide {
-    padding-bottom: 88px;
+    padding-bottom: 92px;
+  }
+
+  #s1 {
+    padding: 68px 4% 92px;
+    gap: 22px;
+  }
+
+  #s1 .s1-orbit {
+    width: 170px;
+    height: 170px;
+  }
+
+  #s1 .s1-inner {
+    width: 130px;
+    height: 130px;
+  }
+
+  #s1 .s1-inner .big {
+    font-size: 38px;
+  }
+
+  .sbody,
+  .toc-body {
+    padding: 4%;
+  }
+
+  .sbar,
+  .toc-bar {
+    padding: 14px 4%;
+  }
+
+  .div-num {
+    width: 88px;
+    height: 88px;
+    font-size: 44px;
+  }
+
+  .thx-title {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
   }
 }
 

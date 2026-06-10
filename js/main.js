@@ -147,23 +147,7 @@
     }
   }
 
-  // Touch events (swipe horizontal; no interferir con scroll vertical)
-  let touchStartX = 0;
-  let touchStartY = 0;
-  function handleTouchStart(e) {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  }
-  function handleTouchEnd(e) {
-    const diffX = touchStartX - e.changedTouches[0].clientX;
-    const diffY = touchStartY - e.changedTouches[0].clientY;
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 45) {
-      if (diffX > 0) nextSlide();
-      else prevSlide();
-    }
-  }
-
-  // Scroll en móvil: detectar overflow y ajustar altura mínima sin mover el diseño
+  // Scroll en móvil: detectar overflow y ajustar altura mínima
   const MOBILE_BP = 992;
 
   function isMobileView() {
@@ -180,6 +164,9 @@
     if (!slideEl || !isMobileView()) return;
 
     slideEl.style.minHeight = '';
+
+    /* Slides con layout flex en móvil no necesitan cálculo extra */
+    if (slideEl.id === 's1' || slideEl.classList.contains('sdiv') || slideEl.id === 's-thx') return;
 
     const positioned = slideEl.querySelectorAll('.s1-left, .s1-right, .s1-footer, .div-body, .thx-body');
     if (!positioned.length) return;
@@ -210,14 +197,13 @@
     slides.forEach((slide) => {
       fixAbsoluteSlideHeight(slide);
       const canScrollY = slide.scrollHeight > slide.clientHeight + 2;
-      const canScrollX = slide.scrollWidth > slide.clientWidth + 2;
-      slide.classList.toggle('has-scroll', canScrollY || canScrollX);
+      slide.classList.toggle('has-scroll', canScrollY);
     });
   }
 
-  // Click en zonas laterales (avanzar/retroceder si no se hizo clic en botón/enlace)
+  // Click en zonas laterales (solo escritorio; en móvil usa los botones)
   function handleDeckClick(e) {
-    // Si el click fue sobre algún elemento de navegación o enlace, no hacer nada
+    if (isMobileView()) return;
     if (e.target.closest('#nav') || e.target.closest('a') || e.target.closest('button')) return;
     const half = window.innerWidth / 2;
     if (e.clientX > half) nextSlide();
@@ -270,8 +256,6 @@
 
     // Asignar eventos globales
     document.addEventListener('keydown', handleKeydown);
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd);
     const deck = document.getElementById('deck');
     if (deck) deck.addEventListener('click', handleDeckClick);
     
